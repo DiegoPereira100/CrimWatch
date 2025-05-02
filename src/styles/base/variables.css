@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #3a86ff;
-  --secondary-color: #8338ec;
+  --primary-color: #ffffff;
+  --secondary-color: #333;
+  --terciary-color: #000000bd;
   --text-color: #333;
-  --max-width: 1200px;
 }
