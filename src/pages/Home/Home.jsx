@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import logoCrimWatch from '../../assets/logoCrimWatch.png'; 
 import './Home.css';
+import { useNavigate } from 'react-router-dom';
 
 const customIcon = L.icon({
   iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff0000"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>',
@@ -135,6 +136,12 @@ function Home() {
     setOcorrencias([...ocorrencias, novaOcorrencia]);
     alert(`Ocorrência registrada em ${formData.bairro}, ${formData.municipio}!`);
   };
+
+  const Navigate = useNavigate();
+
+  const handleClick = () => {
+    Navigate('/ranking');
+  }
 
   useEffect(() => {
     if (formData.municipio && coordenadasMunicipios[formData.municipio]) {
@@ -294,6 +301,12 @@ function Home() {
 
             <button type="submit" className="submit-button">
               Registrar Ocorrência
+            </button>
+            <button type="button" className="clear-button submit-button" onClick={() => setFormData({ municipio: "", bairro: "", tipoCrime: "", localizacao: [-23.9608, -46.3336], descricao: "" })}>
+              Limpar Formulário
+            </button>
+            <button type="submit" onClick={handleClick} className="ranking-button submit-button">
+              Ranking de crimes
             </button>
           </form>
         </div>

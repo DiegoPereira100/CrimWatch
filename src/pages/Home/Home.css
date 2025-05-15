@@ -1,6 +1,7 @@
 .home {
   background-color: var(--primary-color);
-  width: auto;
+  width: 100%;
+  min-width: 1500px;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 8px;
@@ -9,7 +10,7 @@
   text-align: center;
   display: inline-block;
   min-width: fit-content;
-  border: 5px solid #ddd;
+  position: relative;
 }
 
 .home h1 {
@@ -45,12 +46,36 @@
 }
 
 .form-container {
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
   background: var(--primary-color);
   border-radius: 8px;
   height: 500px;
   min-width: 280px;
   border: 1px solid #ddd;
+  
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.form-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.form-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.form-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.form-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .container {
@@ -102,6 +127,8 @@ select, input {
 .submit-button:hover {
   background-color: #45a049;
 }
+
+
 
 .search-bar {
   margin: 20px 0;
